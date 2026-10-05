@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #080808;
+    --bg-secondary: #101010;
+    --bg-card: #151515;
+    --border-subtle: #292929;
+    --crimson-primary: #B11226;
+    --crimson-dark: #750F1C;
+    --crimson-accent: #D62839;
+    --text-primary: #F5F5F5;
+    --text-secondary: #A0A0A0;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #080808;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #292929;
+    border-radius: 4px;
+    border: 2px solid #080808;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #750F1C;
+  }
+
+  /* Focus visible accessibility outline */
+  *:focus-visible {
+    outline: 2px solid #B11226;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .crimson-gradient-border {
+    position: relative;
+  }
+  .crimson-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #B11226 0%, #292929 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .text-glow-subtle {
+    text-shadow: 0 0 12px rgba(177, 18, 38, 0.4);
+  }
+}
